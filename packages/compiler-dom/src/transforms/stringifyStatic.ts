@@ -26,7 +26,6 @@ import {
   toDisplayString,
   normalizeClass,
   normalizeStyle,
-  stringifyClass,
   stringifyStyle,
   makeMap,
   isKnownSvgAttr,
@@ -312,7 +311,7 @@ function stringifyElement(
         if (evaluated != null) {
           const arg = p.arg && (p.arg as SimpleExpressionNode).content
           if (arg === 'class') {
-            evaluated = stringifyClass(normalizeClass(evaluated))
+            evaluated = normalizeClass(evaluated)
           } else if (arg === 'style') {
             evaluated = stringifyStyle(normalizeStyle(evaluated))
           }
